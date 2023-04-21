@@ -1,7 +1,10 @@
+import Layout from './components/layout/Layout';
 function App() {
   return (
     <>
-      <h1>E-Commerce App</h1>
+      <Layout>
+        <h1>E-Commerce App</h1>
+      </Layout>
     </>
   );
 }
