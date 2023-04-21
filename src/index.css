@@ -45,6 +45,20 @@ footer a:hover {
   color: yellow;
 }
 
+/* =========contact page styling ========= */
+.contact {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================= */
+
+
+
 /* =================================
 ======== page not found css ======= */
 .pnf {
