@@ -26,3 +26,21 @@ font-family: 'Poppins', sans-serif;
 .active {
   border-bottom: 1px solid black;
 }
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: 'roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* footer styling */
+footer a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+footer a:hover {
+  color: yellow;
+}
