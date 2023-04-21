@@ -19,7 +19,7 @@ const Footer = () => {
                         <Link to="/policy">Policy</Link>
                     </div>
                 </div>
-                <div class="py-2 text-center">
+                <div className="py-2 text-center">
                     Copyright ©️ 2023 | Yubraj Poudel
                 </div>
 
