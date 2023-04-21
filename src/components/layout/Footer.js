@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="text-center py-4 d-flex flex-row justify-content-around w-25 mx-auto">
                     <div>
                     </div>
-                    <Link to="/home">Home</Link>
+                    <Link to="/">Home</Link>
                     <div>
                         <Link to="/about">About</Link>
                     </div>

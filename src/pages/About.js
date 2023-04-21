@@ -3,7 +3,12 @@ import Layout from '../components/layout/Layout'
 
 const About = () => {
     return (
-        <Layout>
+        <Layout
+            title="About | E-Commerce App"
+            description="MERN eCommerce App"
+            keywords="buy, sell, online, ecommerce"
+            author="Yubraj"
+        >
             <div className="row contact">
                 <div className="col-md-6 ">
                     <img

@@ -3,7 +3,14 @@ import Layout from '../components/layout/Layout'
 
 const Home = () => {
     return (
-        <Layout>Home Page</Layout>
+        <Layout
+            title="Home | E-Commerce App"
+            description="MERN eCommerce App"
+            keywords="buy, sell, online, ecommerce"
+            author="Yubraj"
+        >
+            Home Page
+        </Layout>
     )
 }
 

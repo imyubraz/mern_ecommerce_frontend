@@ -4,7 +4,12 @@ import { BiMailSend, BiPhoneCall, BiSupport } from "react-icons/bi";
 
 const Contact = () => {
     return (
-        <Layout>
+        <Layout
+            title="Contact | E-Commerce App"
+            description="MERN eCommerce App"
+            keywords="buy, sell, online, ecommerce"
+            author="Yubraj"
+        >
             <div className="row contact">
                 <div className="col-md-6 ">
                     <img
