@@ -3,7 +3,9 @@ import React from 'react'
 const Footer = () => {
     return (
         <>
-            <h1>Footer</h1>
+            <footer style={{ minHeight: "10vh" }} className='bg-dark text-light'>
+                Footer Component
+            </footer>
         </>
     )
 }

@@ -3,7 +3,9 @@ import React from 'react'
 const Header = () => {
     return (
         <>
-            <h1>Header</h1>
+            <header style={{ minHeight: "10vh" }} className='bg-dark text-light'>
+                Header Component
+            </header>
         </>
     )
 }
