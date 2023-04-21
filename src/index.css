@@ -11,3 +11,18 @@
 font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif;
 */
+
+/* Navbar Styling */
+
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  /* text-transform: uppercase; */
+  box-shadow: 0 4px 16px 4px rgb(196, 186, 186);
+  --webkit-box-shadow: 0 4px 20px 4px rgb(196, 186, 186);
+}
+
+.active {
+  border-bottom: 1px solid black;
+}
