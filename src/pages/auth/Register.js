@@ -5,6 +5,9 @@ import Layout from '../../components/layout/Layout'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//axios
+import axios from "axios";
+
 const Register = () => {
 
     // states
@@ -16,16 +19,52 @@ const Register = () => {
     const [address, setAddress] = useState("");
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         // preventing default submit behaviour
         e.preventDefault();
         console.log(name, username, email, phone, password, address);
 
+        try {
+            /*             
+            const register = await axios.post(
+                `${process.env.REACT_APP_AUTH_API}/register`,
+                {
+                    name: name,
+                    username: username,
+                    password: password,
+                    email: email,
+                    password: password,
+                    address: address
+                }
+            ) 
+            */
+            const res = await axios.post(`${process.env.REACT_APP_AUTH_API}/register`, { name, username, email, phone, password, address });
+
+            if (res.data.success) {
+                // console.log("Success!")
+                toast.success(res.data.message, {
+                    position: "top-center"
+                });
+            } else {
+                // console.log("Failed!")
+                toast.error(res.data.message, {
+                    position: "top-right"
+                });
+            }
+
+        }
+        catch (error) {
+            console.log(error);
+            toast.error("Error occured!");
+            // toast.error(`Error occured : ${error}`);
+        }
+
+
         // showing toast messages
         // toast("Form submitted!");
-        toast.success("Form submitted!", {
-            position: "top-center"
-        });
+        // toast.success("Form submitted!", {
+        //     position: "top-center"
+        // });
     }
 
 
