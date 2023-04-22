@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mern_ecommerce_frontend/static/css/main.27607ec2.css",
+    "main.js": "/mern_ecommerce_frontend/static/js/main.39453cc9.js",
+    "index.html": "/mern_ecommerce_frontend/index.html",
+    "main.27607ec2.css.map": "/mern_ecommerce_frontend/static/css/main.27607ec2.css.map",
+    "main.39453cc9.js.map": "/mern_ecommerce_frontend/static/js/main.39453cc9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27607ec2.css",
+    "static/js/main.39453cc9.js"
+  ]
+}
