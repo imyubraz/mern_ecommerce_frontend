@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <Layout title="Login | Ecommerce App">
             <>
@@ -11,11 +15,11 @@ const Login = () => {
                         <form >
                             <div className="mb-3">
                                 <label htmlFor="emailInput" className="form-label">Email address</label>
-                                <input type="email" className="form-control" id="emailInput" />
+                                <input type="email" className="form-control" id="emailInput" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="passwordInput" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="passwordInput" />
+                                <input type="password" className="form-control" id="passwordInput" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <button type="submit" className="btn btn-primary px-4">Login</button>
                         </form>

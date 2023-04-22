@@ -92,3 +92,14 @@ footer a:hover {
 }
 
 /* ========================================= */
+
+
+/* =================Form Styling======================== */
+.form-control::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(182, 176, 176);
+  opacity: 0.8;
+  /* Firefox */
+}
+
+/* ========================================= */
