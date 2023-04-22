@@ -49,7 +49,7 @@ const Register = () => {
                     position: "top-center"
                 });
 
-                await setTimeout(() => navigate("/login"), 4000);
+                await setTimeout(() => navigate("/login"), 3000);
                 // navigate("/login");
 
             } else {

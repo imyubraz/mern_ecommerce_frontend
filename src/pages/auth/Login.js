@@ -1,31 +1,50 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
+import { useNavigate } from 'react-router-dom';
 
 // Toastify
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
+//axios
+import axios from "axios";
 
 const Login = () => {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         // preventing default submit behaviour
         e.preventDefault();
-        console.log(email, password);
+        // console.log(email, password);
 
-        // showing toast messages
-        // toast("Form submitted!");
-        toast.success("Form submitted!");
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_AUTH_API}/login`, { email, password });
+
+            if (res.data.success) {
+                // console.log("Success!")
+                // toast.success(res.data.message); // default L position: "top-center"
+                toast.success(res.data.message, {
+                    position: "top-center"
+                });
+                await setTimeout(() => navigate("/"), 2000);
+
+            } else {
+                // console.log("Failed!")
+                toast.error(res.data.message);
+            }
+
+        }
+        catch (error) {
+            toast.error(`Error : ${error.response.data.message}`);
+        }
     }
 
     return (
         <Layout title="Login | Ecommerce App">
             <>
                 <div className="container d-flex justify-content-center align-items-center vh-100 flex-column">
-                    <ToastContainer position="bottom-right" />
-                    {/*  tweaking position from Toast container (default position => top-right) */}
                     <div className="form-wrapper w-50 shadow-lg p-4">
                         <h2 className='text-center py-2 mb-4'>Login</h2>
                         <form onSubmit={handleSubmit} >
