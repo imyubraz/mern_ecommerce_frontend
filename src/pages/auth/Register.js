@@ -2,12 +2,8 @@ import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
 import { useNavigate } from 'react-router-dom';
 
-
 // Toastify
 import { toast } from 'react-toastify';
-
-// Hot toast
-// import toast from 'react-hot-toast';
 
 //axios
 import axios from "axios";
@@ -30,19 +26,21 @@ const Register = () => {
         console.log(name, username, email, phone, password, address);
 
         try {
-            /*             
-            const register = await axios.post(
+
+            /*
+            const res = await axios.post(
                 `${process.env.REACT_APP_AUTH_API}/register`,
                 {
                     name: name,
                     username: username,
-                    password: password,
                     email: email,
                     password: password,
+                    phone: phone,
                     address: address
                 }
-            ) 
+            );
             */
+
             const res = await axios.post(`${process.env.REACT_APP_AUTH_API}/register`, { name, username, email, phone, password, address });
 
             if (res.data.success) {
@@ -62,15 +60,9 @@ const Register = () => {
         }
         catch (error) {
             console.log(error);
-            toast.error("Something went wrong!");
-            // toast.error(`Error occured : ${error}`);
+            // toast.error("Something went wrong!");
+            toast.error(`Error : ${error.response.data.message}`);
         }
-
-        // showing toast messages
-        // toast("Form submitted!");
-        // toast.success("Form submitted!", {
-        //     position: "top-center"
-        // });
 
     }
 
@@ -78,7 +70,6 @@ const Register = () => {
         <Layout title="Register | Ecommerce App" >
             <>
                 <div className="container d-flex justify-content-center align-items-center vh-100 flex-column">
-                    {/* <ToastContainer /> */}
                     <div className="form-wrapper w-50 shadow-lg p-4">
                         <h2 className='text-center py-2 mb-4'>Register</h2>
                         <form onSubmit={handleSubmit}>
