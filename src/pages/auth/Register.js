@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
+import { useNavigate } from 'react-router-dom';
+
 
 // Toastify
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
+// Hot toast
+// import toast from 'react-hot-toast';
 
 //axios
 import axios from "axios";
@@ -18,6 +22,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [address, setAddress] = useState("");
 
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         // preventing default submit behaviour
@@ -45,35 +50,35 @@ const Register = () => {
                 toast.success(res.data.message, {
                     position: "top-center"
                 });
+
+                await setTimeout(() => navigate("/login"), 4000);
+                // navigate("/login");
+
             } else {
                 // console.log("Failed!")
-                toast.error(res.data.message, {
-                    position: "top-right"
-                });
+                toast.error(res.data.message);
             }
 
         }
         catch (error) {
             console.log(error);
-            toast.error("Error occured!");
+            toast.error("Something went wrong!");
             // toast.error(`Error occured : ${error}`);
         }
-
 
         // showing toast messages
         // toast("Form submitted!");
         // toast.success("Form submitted!", {
         //     position: "top-center"
         // });
+
     }
 
-
-
     return (
-        <Layout title="Register | Ecommerce App">
+        <Layout title="Register | Ecommerce App" >
             <>
                 <div className="container d-flex justify-content-center align-items-center vh-100 flex-column">
-                    <ToastContainer />
+                    {/* <ToastContainer /> */}
                     <div className="form-wrapper w-50 shadow-lg p-4">
                         <h2 className='text-center py-2 mb-4'>Register</h2>
                         <form onSubmit={handleSubmit}>
@@ -108,7 +113,7 @@ const Register = () => {
 
                 </div>
             </>
-        </Layout>
+        </Layout >
     )
 }
 
