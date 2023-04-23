@@ -22,7 +22,7 @@ const AuthProvider = (props) => {
                 }
             );
         }
-    }, [auth]);
+    }, []);
 
     return (
         <AuthContext.Provider value={[auth, setAuth]}>
