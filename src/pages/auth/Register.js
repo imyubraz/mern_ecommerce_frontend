@@ -63,7 +63,6 @@ const Register = () => {
             // toast.error("Something went wrong!");
             toast.error(`Error : ${error.response.data.message}`);
         }
-
     }
 
     return (
