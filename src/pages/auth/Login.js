@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/auth';
 
 // Toastify
 import { toast } from 'react-toastify';
@@ -12,6 +13,9 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+    //using auth context via custom hook useAuth
+    const [auth, setAuth] = useAuth();
 
 
     const handleSubmit = async (e) => {
@@ -28,6 +32,15 @@ const Login = () => {
                 toast.success(res.data.message, {
                     position: "top-center"
                 });
+                setAuth({
+                    ...auth,
+                    user: res.data.user,
+                    token: res.data.user.token
+                });
+
+                // localStorage.setItem("auth", res.data) // object storing not supported
+                localStorage.setItem("auth", JSON.stringify(res.data))
+                // localStorage.setItem("auth", JSON.stringify(auth)) // This doesn't work
                 await setTimeout(() => navigate("/"), 2000);
 
             } else {
