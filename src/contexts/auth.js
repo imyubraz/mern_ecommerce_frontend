@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useContext } from 'react'
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -7,6 +8,10 @@ const AuthProvider = (props) => {
         user: null,
         token: null
     });
+
+    // set default token
+    // axios.defaults.headers.common['Authorization'] = auth?.token
+
 
     // run block on first loading of app and run this block on change in value of auth as mention on dependency array [auth]
     useEffect(() => {

@@ -8,12 +8,18 @@ import NotFoundPage from './pages/NotFoundPage';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import Logout from './pages/auth/Logout';
+import Dashboard from './pages/user/Dashboard';
+import UserRoute from './routes/UserRoute';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<UserRoute />} >
+          <Route path='' element={<Dashboard />} />
+          {/* <Route path='/buy' element={} /> */}
+        </Route>
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
