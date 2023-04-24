@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/auth';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios';
-import Spinner from '../components/Spinner';
+// import Spinner from '../components/Spinner';
 import Layout from '../components/layout/Layout';
+import Redirect from '../components/Redirect';
 
 export default function UserRoute() {
     const [access, setAccess] = useState(false);
@@ -41,6 +42,7 @@ export default function UserRoute() {
 
     // return access ? <Outlet /> : "Access denied!";
     // return access ? <Outlet /> : <Spinner />;
-    return access ? <Outlet /> : <Layout><Spinner /></Layout>;
+    // return access ? <Outlet /> : <Layout><Spinner /></Layout>;
+    return access ? <Outlet /> : <Redirect path="/login" />;
 
 }
