@@ -9,8 +9,8 @@ const AuthProvider = (props) => {
         token: null
     });
 
-    // set default token
-    // axios.defaults.headers.common['Authorization'] = auth?.token
+    // set default hearers>token
+    axios.defaults.headers.common['Authorization'] = auth?.token;
 
 
     // run block on first loading of app and run this block on change in value of auth as mention on dependency array [auth]

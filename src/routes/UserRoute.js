@@ -13,12 +13,20 @@ export default function UserRoute() {
         const authCheck = async () => {
             console.log(auth?.token)
             // const res = await axios.get('/api/v1/auth/user-auth',
+
+            // request using custom headers
+            /* 
             const res = await axios.get(`${process.env.REACT_APP_AUTH_API}/user-auth`,
                 {
                     headers: {
                         Authorization: auth?.token || ""
                     }
                 })
+             */
+
+            // request using default headers (defined in contexte/auth.js)
+            const res = await axios.get(`${process.env.REACT_APP_AUTH_API}/user-auth`);
+
             if (res.data.success) {
                 setAccess(true)
             }
