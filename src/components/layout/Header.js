@@ -52,7 +52,11 @@ const Header = () => {
                                         </li>
                                     </>
                                 ) : (
+
                                     <>
+                                        <li className="nav-item">
+                                            <NavLink to="/dashboard" className="nav-link" aria-current="page" >Dashboard</NavLink>
+                                        </li>
                                         <li className="nav-item">
                                             {/* <NavLink onClick={handleLogout} to="/login" className="nav-link" >Logout</NavLink> */}
                                             <NavLink to="/logout" className="nav-link" >Logout</NavLink>

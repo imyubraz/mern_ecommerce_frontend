@@ -22,6 +22,11 @@ const Logout = () => {
             user: null,
             token: null,
         });
+
+        //clearing auth saved in local storage
+        // localStorage.clear()
+        localStorage.removeItem('auth')
+
         toast.success("Logout successfully!");
         // setTimeout(navigate("/login"), 2000)
     }, [])

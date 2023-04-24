@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth';
 
 // Toastify
@@ -13,6 +13,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
 
     //using auth context via custom hook useAuth
     const [auth, setAuth] = useAuth();
@@ -41,7 +42,7 @@ const Login = () => {
                 // localStorage.setItem("auth", res.data) // object storing not supported
                 localStorage.setItem("auth", JSON.stringify(res.data))
                 // localStorage.setItem("auth", JSON.stringify(auth)) // This doesn't work
-                await setTimeout(() => navigate("/"), 2000);
+                await setTimeout(() => navigate(location.state || "/"), 2000);
 
             } else {
                 // console.log("Failed!")

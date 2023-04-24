@@ -12,7 +12,7 @@ export default function UserRoute() {
 
     useEffect(() => {
         const authCheck = async () => {
-            console.log(auth?.token)
+            // console.log(auth?.token)
             // const res = await axios.get('/api/v1/auth/user-auth',
 
             // request using custom headers

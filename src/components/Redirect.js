@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Spinner from './Spinner';
 import Layout from './layout/Layout';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Redirect = ({ path }) => {
     const [count, setCount] = useState(3)
     const navigate = useNavigate();
+    const location = useLocation();
     // console.log(path);
 
     useEffect(() => {
@@ -13,7 +14,9 @@ const Redirect = ({ path }) => {
             setInterval(() => setCount(count - 1), 1000)
         }
         if (count === 0) {
-            navigate(path);
+            navigate(path, {
+                state: location.pathname
+            });
         }
         countDown();
         // setTimeout(navigate({ path }), 1000));
