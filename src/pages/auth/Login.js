@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth';
 
 // Toastify
@@ -69,6 +69,9 @@ const Login = () => {
                             <div className="mb-3">
                                 <label htmlFor="passwordInput" className="form-label">Password</label>
                                 <input type="password" className="form-control" id="passwordInput" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            </div>
+                            <div className='text-end'>
+                                <Link className='text-decoration-none' to="/forgot-password">Forgot Password?</Link>
                             </div>
                             <button type="submit" className="btn btn-primary px-4">Login</button>
                         </form>

@@ -17,13 +17,14 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [address, setAddress] = useState("");
+    const [question, setQuestion] = useState("");
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         // preventing default submit behaviour
         e.preventDefault();
-        console.log(name, username, email, phone, password, address);
+        console.log(name, username, email, phone, password, address, question);
 
         try {
 
@@ -41,7 +42,7 @@ const Register = () => {
             );
             */
 
-            const res = await axios.post(`${process.env.REACT_APP_AUTH_API}/register`, { name, username, email, phone, password, address });
+            const res = await axios.post(`${process.env.REACT_APP_AUTH_API}/register`, { name, username, email, phone, password, address, question });
 
             if (res.data.success) {
                 // console.log("Success!")
@@ -68,7 +69,7 @@ const Register = () => {
     return (
         <Layout title="Register | Ecommerce App" >
             <>
-                <div className="container d-flex justify-content-center align-items-center vh-100 flex-column">
+                <div className="container d-flex justify-content-center align-items-center min-vh-100 flex-column my-4">
                     <div className="form-wrapper w-50 shadow-lg p-4">
                         <h2 className='text-center py-2 mb-4'>Register</h2>
                         <form onSubmit={handleSubmit}>
@@ -96,6 +97,16 @@ const Register = () => {
                             <div className="mb-3">
                                 <label htmlFor="addressInput" className="form-label">Address</label>
                                 <input type="address" className="form-control" id="addressInput" placeholder='Kathmandu, Nepal' value={address} onChange={(e) => setAddress(e.target.value)} required />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="questionInput" className="form-label">Security Question</label>
+                                <select className="form-select my-2" aria-label="Default select example">
+                                    <option selected>What's your nickname ?</option>
+                                    <option>What's your pet name?</option>
+                                    <option>What's your first school name?</option>
+                                    <option>What's your elder cousin name?</option>
+                                </select>
+                                <input type="question" className="form-control" id="questionInput" placeholder='Answer' name='question' value={question} onChange={(e) => setQuestion(e.target.value)} required />
                             </div>
                             <button type="submit" className="btn btn-primary px-4">Register</button>
                         </form>

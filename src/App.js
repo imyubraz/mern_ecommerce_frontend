@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import Logout from './pages/auth/Logout';
+import ForgotPassword from './pages/auth/ForgotPassword';
 import Dashboard from './pages/user/Dashboard';
 import UserRoute from './routes/UserRoute';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/policy' element={<Policy />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>
