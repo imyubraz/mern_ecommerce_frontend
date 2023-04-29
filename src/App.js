@@ -9,8 +9,10 @@ import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import Logout from './pages/auth/Logout';
 import ForgotPassword from './pages/auth/ForgotPassword';
-import Dashboard from './pages/user/Dashboard';
 import UserRoute from './routes/UserRoute';
+import AdminRoute from './routes/AdminRoute';
+import UserDashboard from './pages/user/UserDashboard';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   return (
@@ -18,8 +20,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<UserRoute />} >
-          <Route path='' element={<Dashboard />} />
+          <Route path='user' element={<UserDashboard />} />
           {/* <Route path='/buy' element={} /> */}
+        </Route>
+        <Route path='/dashboard' element={<AdminRoute />} >
+          <Route path='admin' element={<AdminDashboard />} />
         </Route>
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
