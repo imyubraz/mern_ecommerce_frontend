@@ -54,13 +54,25 @@ const Header = () => {
                                 ) : (
 
                                     <>
-                                        <li className="nav-item">
-                                            <NavLink to="/dashboard" className="nav-link" aria-current="page" >Dashboard</NavLink>
-                                        </li>
-                                        <li className="nav-item">
-                                            {/* <NavLink onClick={handleLogout} to="/login" className="nav-link" >Logout</NavLink> */}
-                                            <NavLink to="/logout" className="nav-link" >Logout</NavLink>
-                                        </li>
+                                        <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                            <ul className="navbar-nav">
+                                                <li className="nav-item dropdown">
+                                                    <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        {/* getting username from auth context */}
+                                                        {auth?.user?.username}
+                                                    </Link>
+                                                    <ul className="dropdown-menu dropdown-menu-light">
+                                                        <li className="nav-item">
+                                                            <NavLink to="/dashboard" className="nav-link" aria-current="page" >Dashboard</NavLink>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            {/* <NavLink onClick={handleLogout} to="/login" className="nav-link" >Logout</NavLink> */}
+                                                            <NavLink to="/logout" className="nav-link" >Logout</NavLink>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </>
                                 )
                             }
