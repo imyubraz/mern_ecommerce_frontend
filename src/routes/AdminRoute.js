@@ -30,6 +30,6 @@ export default function AdminRoute() {
 
     }, [auth?.token])
 
-    return access ? <Outlet /> : <Redirect path="/login" />;
+    return access ? <Outlet /> : <Redirect path="/" />;
 
 }
